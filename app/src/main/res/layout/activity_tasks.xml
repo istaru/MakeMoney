@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/item_bg"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@color/gules"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:id="@+id/onBack"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_centerVertical="true"
+            android:gravity="center"
+            android:background="@drawable/back_bg">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:scaleType="fitXY"
+                android:src="@mipmap/back" />
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="任务列表"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+    </RelativeLayout>
+
+    <com.mx.hb.moon.swipeRefresh.SwipeRefreshLayout
+        android:id="@+id/tasks_swipe"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:id="@+id/bottleLlt1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="visible">
+
+            <RadioGroup
+                android:id="@+id/tasks_group"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="25dp"
+                android:layout_marginRight="25dp"
+                android:layout_marginTop="10dp"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:layout_alignParentTop="true">
+
+                <RadioButton
+                    android:id="@+id/btn_1"
+                    style="@style/tasks_style"
+                    android:background="@drawable/tasks_selector_left_bg"
+                    android:checked="true"
+                    android:text="普通任务" />
+
+                <RadioButton
+                    android:id="@+id/btn_2"
+                    style="@style/tasks_style"
+                    android:background="@drawable/tasks_selector_right_bg"
+                    android:text="高额任务" />
+            </RadioGroup>
+
+        <ListView
+            android:id="@+id/tkListView"
+            android:layout_below="@+id/tasks_group"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:dividerHeight="8dp"
+            android:divider="@android:color/transparent"
+            android:overScrollFooter="@null" />
+
+        </RelativeLayout>
+
+    </com.mx.hb.moon.swipeRefresh.SwipeRefreshLayout>
+
+</LinearLayout>

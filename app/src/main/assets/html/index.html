@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <meta charset="utf-8">
+        <title>任务详情</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black">
+        <!--标准mui.css-->
+        <link rel="stylesheet" href="../css/mui.css">
+        <style>
+            body{
+                background-color: #efeff4;
+                padding: 0 15px;
+                color: #333;
+                font-family: Arial, 'Hiragino Sans GB', 'Microsoft YaHei', 'WenQuanYi Micro Hei', sans-serif;
+                font-size: 14px;
+                padding-bottom: 65px;
+            }
+            h2{
+                font-size: 16px;
+                color: #333;
+                font-weight: normal;
+                margin: 10px 0;
+                position: relative;
+            }
+            h2:after{
+                content: '';
+                display: block;
+                width: 4px;
+                height: 4px;
+                border-radius: 100%;
+                background-color: #14A9ED;
+                position: absolute;
+                top: 50%;
+                left: 0;
+                margin-left: -8px;
+                margin-top: -2px;
+            }
+            .header {
+                padding: 25px 108px;
+                padding-left: 100px;
+                overflow: hidden;
+            }
+            .header_main{
+                width: 100%;
+            }
+            .header p{
+                margin: 0;
+                white-space: nowrap;
+            }
+            .appName,.points_ct{
+                line-height: 30px;
+            }
+            .adSlogan,.appSize_ct{
+                line-height: 50px;
+            }
+            .appName{
+                font-size: 16px;
+                font-weight: normal;
+                margin: 0;
+                color: #333;
+            }
+            .points_ct{
+                color: #E74D4F;
+            }
+            .iconUrl{
+                margin-left: -100%;
+                position: relative;
+                width: 80px;
+                left: -100px;
+            }
+            .header_sub{
+                width: 108px;
+                margin-left: -108px;
+                position: relative;
+                right: -108px;
+            }
+            .label_auth{
+                height: 65px;
+                line-height: 65px;
+                border-top: 1px solid #D9DAD5;
+                border-bottom: 1px solid #D9DAD5;
+            }
+            .label_auth>span{
+                color: #4DA9C8;
+                border: 1px solid #4DA9C8;
+                padding: 3px 10px;
+                border-radius: 30px;
+                margin-right: 10px;
+            }
+            .step_num{
+                font-weight: normal;
+                background-color: #14A9ED;
+                color: #fff;
+                border-radius: 100%;
+                padding: 0 5px;
+                margin: 0 2px;
+            }
+            .task_status{
+                color: #F6F6F4;
+                padding: 3px 5px;
+                border-radius: 5px;
+                margin-left: 5px;
+            }
+            .task_status_0{
+                background-color: #E04744;
+                box-shadow: 3px 3px 0px #AB201E;
+                -webkit-box-shadow: 3px 3px 0px #AB201E;
+            }
+            .task_status_1{
+                background-color: #FF4500;
+                box-shadow: 3px 3px 0px #FF4040;
+                -webkit-box-shadow: 3px 3px 0px #FF4040;
+            }
+            .task_status_2{
+            background-color: #00EE76;
+            box-shadow: 3px 3px 0px #00EE00;
+            -webkit-box-shadow: 3px 3px 0px #00EE00;
+            }
+            .task_status_3{
+            background-color: #87CEFF;
+            box-shadow: 3px 3px 0px #87CEFA;
+            -webkit-box-shadow: 3px 3px 0px #87CEFA;
+            }
+            .task_status_4{
+            background-color: #00FF7F;
+            box-shadow: 3px 3px 0px #00FF00;
+            -webkit-box-shadow: 3px 3px 0px #00FF00;
+            }
+            .get_points{
+                color: #E21616;
+                margin-left: 10px;
+                font-size: 18px;
+                transform: scale(2);
+            }
+            .mui-slider{
+                width: auto;
+                padding-bottom: 20px;
+            }
+            .mui-slider-indicator .mui-indicator{
+                box-shadow: none;
+                -webkit-box-shadow: none;
+            }
+            .task_desc{
+                color: #8f8f94;
+                margin: 10px 0 15px;
+            }
+            .mui-bar-footer{
+                background-color: #fff;
+                box-shadow: none;
+                -webkit-box-shadow: none;
+                height: 60px;
+                padding-top: 5px;
+                box-sizing: border-box;
+            }
+            .mui-bar-footer .mui-btn{
+                padding: 8px 0;
+                line-height: 22px;
+                height: 40px;
+            }
+            .mui-slider .mui-slider-group .mui-slider-item{
+                width: 50%;
+                padding: 0 10px;
+            }
+            .mui-slider-indicator{
+                bottom: 0px;
+            }
+        </style>
+    </head>
+
+    <body>
+        <div class="header">
+            <div class="header_main mui-pull-left">
+                <h1 class="appName mui-ellipsis"></h1>
+                <p class="adSlogan mui-ellipsis"></p>
+            </div>
+            <img class="iconUrl mui-media-object mui-pull-left">
+            <div class="header_sub mui-pull-left mui-text-right">
+                <p class="points_ct"><span class="points"></span>元</p>
+                <p class="appSize_ct">大小：<span class="appSize"></span></p>
+            </div>
+        </div>
+        <div class="label_auth">
+            <span>官方认证</span>
+            <span>安全认证</span>
+        </div>
+        <div class="task_list_ct">
+        </div>
+        <h2>应用截图</h2>
+        <div id="slider" class="mui-slider" >
+        </div>
+        <h2>应用描述</h2>
+        <div class="appDesc">
+        </div>
+        <div class="mui-bar mui-bar-footer">
+            <button type="button" class="mui-btn mui-btn-success mui-btn-block" >下载</button>
+        </div>
+    </body>
+    <script src="../js/mui.js"></script>
+    <script>
+        function renderPage(data){
+            mui('.appName')[0].innerText = data.adName;
+            mui('.adSlogan')[0].innerText = data.adSlogan;
+            mui('.iconUrl')[0].setAttribute('src', data.adIconUrl);
+            mui('.points')[0].innerText = data.points;
+            mui('.appSize')[0].innerText = data.size;
+
+            if(data.list && data.list.length){
+                var list = data.list,len = list.length;
+                var html_str = '<h2>教您做任务</h2>';
+                for(var i = 0; i < len; i++){
+                    var item = list[i];
+                    var status_str_arr = ['未开始','未完成','已完成','已过期','有追加任务'];
+                    html_str += '<dt>'
+                                    +'第<span class="step_num">'+(+i+1)+'</span>步'
+                                    +'<label class="task_status task_status_'+item.status+'">'+status_str_arr[item.status]+'</label>'
+                                +'</dt>'
+                                +'<dd class="task_desc">'
+                                    +item.adText
+                                    +'<span class="get_points">+'+'&nbsp'+item.points+'元'+'</span>'
+                                +'</dd>';
+                }
+                mui('.task_list_ct')[0].innerHTML = html_str;
+            }
+            if(data.ssUrls && data.ssUrls.length){
+                var list = data.ssUrls,len = list.length;
+                var html_str1 = '<div class="mui-slider-group">';
+                var html_str2 = '<div class="mui-slider-indicator">';
+                for(var i = 0; i < len; i++){
+                    html_str1 += '<div class="mui-slider-item">'
+                                    +'<a href="javascript:;">'
+                                        +'<img src="'+list[i]+'">'
+                                    +'</a>'
+                                +'</div>';
+                    html_str2 += '<div class="mui-indicator'+(i ? '' : ' mui-active')+'"></div>';
+                }
+                html_str1 += '</div>';
+                html_str2 += '</div>';
+            }
+
+            var slider = mui("#slider");
+            slider[0].innerHTML = html_str1 + html_str2;
+            slider.slider({
+                interval: 0
+            });
+            mui('.appDesc')[0].innerHTML = data.desc;
+
+            var btn = mui('.mui-btn')[0];
+            if(data.dlStatus){
+                btn.className = 'mui-btn mui-btn-primary mui-btn-block';
+                btn.innerText = '打开';
+            }
+            mui('body').on('tap','.mui-btn-primary,.mui-btn-success',function(){
+                window.Android.downloadOrOpen();
+            });
+        }
+        //颜色置灰，返回打开样式
+        function isDownload(flag){
+            var btn = mui('.mui-btn')[0];
+            if(flag){
+                btn.className = 'mui-btn mui-btn-grey mui-btn-block';
+                btn.innerText = '下载中，请稍后';
+            }else{
+                btn.className = 'mui-btn mui-btn-primary mui-btn-block';
+                btn.innerText = '打开';
+            }
+        }
+        function findByData(data){
+            <!--alert(data);-->
+            if(data.code){
+                document.body.innerText = '发生了一些错误，没拿到数据！';
+            }else{
+                renderPage(data)   
+            }
+        }
+    </script>
+</html>

@@ -1,0 +1,88 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!--Customize your theme here.
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>-->
+    </style>
+
+    //1、设置背景图Theme
+    <style name="Theme" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="android:windowIsTranslucent">true</item>
+        <!--<item name="android:background">@mipmap/welcome</item>
+        <item name="android:windowNoTitle">true</item>-->
+        <item name="android:windowBackground">@mipmap/welcome</item>
+        <item name="android:windowNoTitle">true</item>
+    </style>
+
+    <style name="mainTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="android:windowIsTranslucent">true</item>
+    </style>
+
+    <!--窗体弹出动画(自上而下)-->
+    <style name="AnimBottom" parent="@android:style/Animation">
+        <item name="android:windowEnterAnimation">@anim/push_bottom_in</item>
+        <item name="android:windowExitAnimation">@anim/push_bottom_out</item>
+    </style>
+
+    <!--窗体弹出动画(自下而上)-->
+    <style name="AnimTop" parent="@android:style/Animation">
+        <item name="android:windowEnterAnimation">@anim/push_top_in</item>
+        <item name="android:windowExitAnimation">@anim/push_top_out</item>
+    </style>
+
+    <!--Loading的样式-->
+    <style name="DialogTheme" parent="android:Theme.Dialog">
+        <item name="android:windowBackground">@drawable/dialog_background</item>
+    </style>
+
+    <style name="moneyText0">
+        <item name="android:layout_marginLeft">5dp</item>
+        <item name="android:layout_marginRight">5dp</item>
+    </style>
+    <style name="moneyText1">
+        <item name="android:layout_marginLeft">5dp</item>
+        <item name="android:layout_marginRight">5dp</item>
+    </style>
+
+    <style name="moneyText2">
+        <item name="android:textColor">@color/moneyText</item>
+        <item name="android:layout_marginLeft">5dp</item>
+        <item name="android:layout_marginRight">5dp</item>
+    </style>
+
+    <!-- 任务分类的样式 -->
+    <style name="tasks_style">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:padding">5dp</item>
+        <item name="android:button">@null</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textColor">@color/tasks_text_selector</item>
+        <item name="android:textSize">14sp</item>
+    </style>
+
+    <!-- 蒙版引导页 半透明-->
+    <style name="Dialog_Fullscreen">
+        <item name="android:windowAnimationStyle">@style/Dialog_Anim</item>
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowNoTitle">true</item>
+    </style>
+
+    <!-- 入淡出效果 -->
+    <style name="Dialog_Anim">
+        <item name="android:windowEnterAnimation">@anim/fading_in</item>
+        <item name="android:windowExitAnimation">@anim/fading_out</item>
+    </style>
+
+    <!--WheelView-->
+    <!--<style name="anim_push_bottom" parent="@android:style/Animation">
+        <item name="android:windowEnterAnimation">@anim/push_bottom_in</item>
+        <item name="android:windowExitAnimation">@anim/push_bottom_out</item>
+    </style>-->
+
+</resources>

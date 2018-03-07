@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:padding="5dp"
+    android:shape="rectangle" >
+
+    <solid android:color="#ffffff" />
+
+    <!-- 圆角 -->
+    <corners
+        android:topLeftRadius="8dp"
+        android:topRightRadius="8dp"
+        android:bottomLeftRadius="8dp"
+        android:bottomRightRadius="8dp" />
+
+    <!-- 间隔 -->
+    <padding
+        android:bottom="2dp"
+        android:left="2dp"
+        android:right="2dp"
+        android:top="2dp" />
+
+    <!-- 大小 -->
+
+    <!-- 填充 -->
+    <solid android:color="@color/gules_light" />
+
+    <!-- 描边 -->
+    <!-- <stroke
+        android:width="0.5dp"
+        android:color="@color/white" /> -->
+
+</shape>

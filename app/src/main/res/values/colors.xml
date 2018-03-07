@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FFCD00</color>
+    <color name="colorApp">#F84D14</color>
+    <color name="main_light_gray_bg">#F1F1F1</color>
+    <color name="main_light_gray_bg2">#CCCCCC</color>
+    <color name="gray_bg">#E5E5E5</color>
+    <color name="white">#FFFFFF</color>
+    <color name="black">#000000</color>
+    <color name="welcom">#F53423</color>
+    <color name="deposit">#7ABD32</color>
+    <color name="gules">#e74c3c</color>
+    <color name="gules2">#aae74c3c</color>
+    <color name="gules_light">#FA6A43</color>
+    <color name="wanpu">#FFD73C</color>
+    <color name="share">#F5A623</color>
+    <color name="dianru">#6AC2FF</color>
+    <color name="dianle">#42CFC8</color>
+    <color name="duomeng">#333333</color>
+    <color name="item_bg">#EFEFF4</color>
+    <color name="moneyText">#FF5900</color>
+    <color name="dialog_blue">#0876FE</color>
+    <color name="bTransparent">#30000000</color>
+    <color name="textColorSecondary">@android:color/secondary_text_dark</color>
+
+    <!--覆盖颜色-->
+    <color name="bgColor_overlay">#60000000</color>
+    <color name="bgColor_overlay_black">#95000000</color>
+    <!--窗口背景颜色-->
+    <color name="bgColor_svprogressdefaultview">@android:color/white</color>
+    <!--标题颜色-->
+    <color name="textColor_svprogresshuddefault_msg">#000000</color>
+    <color name="roundColor_svprogresshuddefault">#e5e5e5</color>
+    <color name="roundProgressColor_svprogresshuddefault">@android:color/black</color>
+</resources>

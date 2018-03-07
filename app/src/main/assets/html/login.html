@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta http-equiv="Cache-Control" name="no-store">
+    <meta content="telephone=no" name="format-detection">
+    <meta content="email=no" name="format-detection">
+    <meta charset="utf-8">
+    <!-- uc强制竖屏 -->
+    <meta name="screen-orientation" content="portrait">
+    <!-- QQ强制竖屏 -->
+    <meta name="x5-orientation" content="portrait">
+    <!-- UC强制全屏 -->
+    <meta name="full-screen" content="yes">
+    <!-- QQ强制全屏 -->
+    <meta name="x5-fullscreen" content="true">
+    <!-- UC应用模式 -->
+    <meta name="browsermode" content="application">
+    <!-- QQ应用模式 -->
+    <meta name="x5-page-mode" content="app">
+    <meta http-equiv="x-dns-prefetch-control" content="on"/>
+    <title>来赚</title>
+    <style type="text/css">
+        html,body,p,ul,li{
+        margin: 0;
+        padding: 0;
+        }
+        ul{
+        list-style-type: none;
+        }
+        html,body{
+        height: 100%;
+        font-size: 15px;
+        }
+        body{
+        font-family: Arial,"Hiragino Sans GB","Microsoft YaHei","WenQuanYi Micro Hei",sans-serif;
+        -webkit-font-smoothing: antialiased;
+        -webkit-tap-highlight-color: rgba(255, 255, 255, 0); /*清除在IOS上激活时的高亮*/
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        user-select: none;
+        min-width: 20rem;
+        max-width: 62.5rem;
+        margin: 0 auto;
+        box-sizing: border-box;
+        position: relative;
+        }
+        .task_list{
+        height: 100%;
+        padding-left: 5rem;
+        overflow: hidden;
+        position: relative;
+        }
+        .task_list li{
+        height: 0;
+        position: relative;
+        box-sizing: border-box;
+        white-space: nowrap;
+        padding-left: 5rem;
+        transition: height .8s,opacity 1.2s 1s;
+        -webkit-transition: height .8s,opacity 1.2s 1s;
+        -webkit-transform-style: preserve-3d;
+        -webkit-backface-visibility: hidden;
+        opacity: 0;
+        }
+        .task_list li:after{
+        content: '';
+        position: absolute;
+        right: 0;
+        left: 0;
+        background-color: #eee;
+        height: 1px;
+        bottom: 0;
+        }
+        .task_list li.task{
+        height: 25%;
+        opacity: 1;
+        min-height:70px;
+        }
+        .head_img{
+        width: 3.125rem;
+        height: 3.125rem;
+        border-radius: 100%;
+        background-repeat:no-repeat;
+        background-position: center;
+        background-size: contain;
+        border: 1px solid #ccc;
+        box-sizing: border-box;
+        position: absolute;
+        left: -4.0625rem;
+        top: 50%;
+        margin-top: -1.5625rem;
+        }
+        .user_detail{
+        position: absolute;
+        left: 0;
+        top: 50%;
+        margin-top: -1.5625rem;
+        width: 5rem;
+        }
+        .user_name{
+        height: 1.875rem;
+        line-height: 1.875rem;
+        font-size: .875rem;
+        color: #333;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        }
+        .user_time{
+        height: 1.25rem;
+        line-height: 1.25rem;
+        font-size: .75rem;
+        color: #777;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        }
+        .desc{
+        height: 100%;
+        text-align: right;
+        color: #F34529;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        font-size: 1rem;
+        padding-right: 5px;
+        transform: translateY(-30px);
+        -webkit-transform: translateY(-30px);
+        transition: transform 1.2s 1s,color .8s 3.5s;
+        -webkit-transition: -webkit-transform 1.2s 1s,color .8s 3.5s;
+        -webkit-transform-style: preserve-3d;
+        -webkit-backface-visibility: hidden;
+        }
+        .task .desc{
+        color: #555;
+        transform: translateY(0);
+        -webkit-transform: translateY(0);
+        }
+        .desc:after{
+        content: '';
+        height: 100%;
+        width: 0;
+        display: inline-block;
+        vertical-align: middle;
+        }
+        .loading_icon_ct{
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        margin-top: -1.5rem;
+        margin-left: -1.5rem;
+        width: 3rem;
+        height: 3rem;
+        transition: all 1s;
+        -webkit-transition: all 1s;
+        -webkit-transform-style: preserve-3d;
+        -webkit-backface-visibility: hidden;
+        animation: am_loading_icon 1.5s linear infinite;
+        -webkit-animation: am_loading_icon 1.5s linear infinite;
+
+        }
+        .loading_icon_ct .loading_icon{
+        content: '';
+        display: block;
+        width: 100%;
+        height: 100%;
+        box-sizing: border-box;
+        border: 3px solid #F34529;
+        opacity: 1;
+        border-radius: 100%;
+        border-left-color: transparent;
+        border-right-color: transparent;
+        transition: all 2.5s;
+        -webkit-transition: all 2.5s;
+        -webkit-transform-style: preserve-3d;
+        -webkit-backface-visibility: hidden;
+        transform: scale(1);
+        -webkit-transform: scale(1);
+        }
+        .loaded .loading_icon_ct .loading_icon{
+        opacity: 0;
+        transform: scale(0);
+        -webkit-transform: scale(0);
+        }
+
+        @keyframes am_loading_icon {
+        100% {
+        transform: rotate(1turn);
+        }
+        }
+
+        @-webkit-keyframes am_loading_icon {
+        100% {
+        -webkit-transform: rotate(1turn);
+        }
+        }
+        @media (max-width: 380px) {
+        html,body{
+        font-size: 14px;
+        }
+        }
+        @media (max-width: 325px) {
+        html,body{
+        font-size: 12px;
+        }
+        }
+    </style>
+</head>
+
+<body>
+<ul class="task_list">
+
+</ul>
+<div class="loading_icon_ct"><div class="loading_icon"></div></div>
+</body>
+<script type="text/javascript">
+    (function(){
+        // 禁止body滚动
+        document.body.ontouchmove=function(e){
+            e.preventDefault();
+        }
+        // 列表数据
+        window.setData = function(data){
+            window.data = data;
+            setTimeout(function(){
+                renderUl();
+            },500);
+        };
+
+        // 任务列表
+        var eleUl = gbCls('task_list')[0];
+        // 数据索引
+        var idx = 0;
+        // 根据指定className获取
+        function gbCls(str){
+            return document.getElementsByClassName(str);
+        }
+        // 渲染UL
+        function renderUl(){
+            // 渲染UL前隐藏loading_icon
+            document.body.className = "loaded";
+            setTimeout(function(){
+                setTimeout(function(){
+                    removeElement(gbCls("loading_icon_ct")[0]);
+                },2000);
+                for(; idx < 3; idx++){
+                    var eleLi = getLi(window.data[idx]);
+                    eleLi.className = "task";
+                    var firstLi = eleUl.firstElementChild;
+                    if(firstLi){
+                        eleUl.insertBefore(eleLi,firstLi);
+                    }else{
+                        eleUl.appendChild(eleLi);
+                    }
+                }
+                renderLi();
+            },1000);
+        }
+
+        // 删除节点
+        function removeElement(_element){
+            var _parentElement = _element.parentNode;
+            if(_parentElement){
+                _parentElement.removeChild(_element);
+            }
+        }
+        // 渲染LI
+        function renderLi(){
+            var eleLi = getLi(window.data[idx++]);
+            eleUl.insertBefore(eleLi,eleUl.firstElementChild);
+            idx === window.data.length && (idx = 0);
+            setTimeout(function(){
+                eleLi.className = "task";
+                setTimeout(function(){
+                    renderLi();
+                    removeElement(eleUl.lastElementChild);
+                },3500);
+            },100);
+        }
+
+        // 生成一个个li节点
+        function getLi(obj){
+            var eleLi = document.createElement('li');
+            eleLi.innerHTML = '<div class="head_img" style="background-image: url('+obj.head_img+');"></div>'
+                            +'<div class="user_detail">'
+                                +'<p class="user_name">'+obj.name+'</p>'
+                                +'<p class="user_time">'+obj.time+'</p>'
+                            +'</div>'
+                            +'<p class="desc">'
+                                +obj.desc
+                            +'</p>';
+            return eleLi;
+        };
+    })();
+</script>
+
+</html>

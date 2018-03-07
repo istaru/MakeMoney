@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_alignParentBottom="true"
+        android:padding="10dp"
+        android:background="@android:color/transparent">
+
+    <TextView
+        android:id="@+id/friends"
+        android:layout_width="fill_parent"
+        android:layout_height="50dp"
+        android:background="@drawable/btnbg_out_one"
+        android:gravity="center"
+        android:text="朋友圈"
+        android:textColor="@color/deposit"
+        android:textSize="21sp"
+        android:layout_marginBottom="1dp"/>
+
+    <TextView
+        android:id="@+id/friend"
+        android:layout_width="fill_parent"
+        android:layout_height="50dp"
+        android:background="@drawable/btnbg_out_four"
+        android:gravity="center"
+        android:text="微信好友"
+        android:textSize="21sp"
+        android:textColor="@color/gules"
+        android:layout_marginBottom="1dp"/>
+
+    <TextView
+        android:id="@+id/link"
+        android:layout_width="fill_parent"
+        android:layout_height="50dp"
+        android:background="@drawable/btnbg_out_four"
+        android:gravity="center"
+        android:text="邀请链接"
+        android:textSize="21sp"
+        android:textColor="#0099FF"
+        android:layout_marginBottom="1dp"/>
+
+    <TextView
+        android:id="@+id/code"
+        android:layout_width="fill_parent"
+        android:layout_height="50dp"
+        android:background="@drawable/btnbg_out_two"
+        android:gravity="center"
+        android:text="保存二维码"
+        android:textSize="21sp"
+        android:textColor="#0099FF" />
+
+    <TextView
+        android:id="@+id/cancel"
+        android:layout_width="fill_parent"
+        android:layout_height="50dp"
+        android:layout_marginTop="5dp"
+        android:background="@drawable/btnbg_out_three"
+        android:gravity="center"
+        android:padding="5dp"
+        android:text="取消"
+        android:textSize="21sp"
+        android:textColor="#0099FF" />
+    </LinearLayout>
+
+</RelativeLayout>

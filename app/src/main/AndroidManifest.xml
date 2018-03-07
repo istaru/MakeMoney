@@ -1,0 +1,289 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.mx.hb.moon">
+
+    <!-- 访问网络权限 -->
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <!-- 下载权限 -->
+    <uses-permission android:name="android.permission.DOWNLOAD_WITHOUT_NOTIFICATION" />
+
+    <!-- 获取网络信息状态，如当前的网络连接是否有效 -->
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
+    <!-- 获取当前WiFi接入的状态以及WLAN热点的信息 -->
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+
+    <!-- 访问电话状态 -->
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+
+    <!-- 允许程序写入外部存储，如SD卡上写文件 -->
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
+    <!-- 通过WiFi或移动基站的方式获取用户错略的经纬度信息，定位精度大概误差在30~1500米 -->
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+
+    <!-- 通过GPS芯片接收卫星的定位信息，定位精度达10米以内 -->
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+
+    <!-- 允许程序连接配对过的蓝牙设备 -->
+    <uses-permission android:name="android.permission.BLUETOOTH" />
+
+    <!-- 允许程序进行发现和配对新的蓝牙设备 -->
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
+
+    <!-- 允许程序获取当前或最近运行的应用 -->
+    <uses-permission android:name="android.permission.GET_TASKS" />
+
+    <!-- 改变WiFi状态 -->
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+
+    <!-- 允许振动 -->
+    <uses-permission android:name="android.permission.VIBRATE" />
+
+    <!-- 读取系统底层日志 -->
+    <uses-permission android:name="android.permission.READ_LOGS" />
+
+    <!-- 允许程序从非系统拨号器里输入电话号码 -->
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+
+    <!-- 设置调试程序，一般用于开发 -->
+    <uses-permission android:name="android.permission.SET_DEBUG_APP" />
+
+    <!-- 访问GMail账户列表 -->
+    <uses-permission android:name="android.permission.GET_ACCOUNTS" />
+
+    <!-- 使用证书 允许程序请求验证从AccountManager -->
+    <uses-permission android:name="android.permission.USE_CREDENTIALS" />
+    <uses-permission android:name="android.permission.MANAGE_ACCOUNTS" />
+
+    <!-- 多盟权限 -->
+    <!-- 挂载、反挂载外部文件系统 -->
+    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" />
+
+    <!-- 有米（积分墙）权限 -->
+    <uses-permission
+        android:name="android.permission.PACKAGE_USAGE_STATS"
+        tools:ignore="ProtectedPermissions" />
+    <uses-permission android:name="android.permission.READ_PROFILE" />
+    <uses-permission android:name="android.permission.READ_CONTACTS" />
+
+    <application
+        android:name=".application.MainApplication"
+        android:allowBackup="false"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity
+            android:name=".activity.WelcomeActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data
+                    android:host="com.hb.moon.app"
+                    android:pathPrefix="/openwith"
+                    android:scheme="laizhuan" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".activity.PermissionsActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.LoginActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.MainActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.BannerActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.MessageActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.BindingNum"
+            android:screenOrientation="portrait" />
+
+        <service
+            android:name=".service.UpdataService"
+            android:enabled="true" />
+
+        <activity
+            android:name=".activity.TasksActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.ShareActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.DepositActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.HelpActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.CashActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.TaskDepositActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.FriendsActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.DipperActivity1"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.YoumiItemActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.WanpuItemActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.DianruItemActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.DianleItemActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".wxapi.WXEntryActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:exported="true"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+
+        <!-- 添加UmengAppkeySDK -->
+        <!-- <meta-data -->
+        <!-- android:name="UMENG_APPKEY" -->
+        <!-- android:value="56d7a9c9e0f55a45020017ef"></meta-data> -->
+        <meta-data
+            android:name="UMENG_APPKEY"
+            android:value="57c6754f67e58efd4300117a"></meta-data>
+        <meta-data
+            android:name="UMENG_MESSAGE_SECRET"
+            android:value="a5b1f4eb0c86c5c46da715894e3b612a"></meta-data>
+
+        <!-- 添加YoumiSDK -->
+        <meta-data
+            android:name="YOUMI_CHANNEL"
+            android:value="这里替换为非负整数的渠道号" />
+
+        <!-- 源数据版（开始） -->
+        <service
+            android:name="xz.ax.qr.Hg"
+            android:exported="false" />
+        <service
+            android:name="xz.ax.qr.Hd"
+            android:exported="false" />
+
+        <receiver android:name="xz.ax.qr.Hf">
+            <intent-filter>
+                <action android:name="android.intent.action.PACKAGE_ADDED" />
+
+                <data android:scheme="package" />
+            </intent-filter>
+        </receiver>
+        <!-- 源数据版（结束） -->
+        <!-- 配置有米积（结束） -->
+
+
+        <!-- 配置多盟（开始） -->
+        <activity
+            android:name="cn.dow.android.DActivity"
+            android:screenOrientation="portrait" />
+
+        <service android:name="cn.dow.android.DService" />
+
+        <meta-data
+            android:name="D_PPID"
+            android:value="96ZJ2xZwzeDzPwTBK+" />
+        <!-- 此处填写APP的PPID,即开发者在多盟申请 的媒体ID -->
+        <!-- 配置多盟（结束） -->
+
+
+        <!-- 配置点乐（开始） -->
+        <!-- 自带UI版（开始） -->
+        <!--
+        <activity android:name="com.mxhbmoonm.DevNativeActivity"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar"
+            android:configChanges="keyboardHidden|orientation"/>
+        <service android:name="com.mxhbmoonm.DevNativeService" />
+        -->
+        <!-- 自带UI版（结束） -->
+
+
+        <!-- 源数据版（开始） -->
+        <service android:name="com.moonmmxhb.DevInitService" />
+        <!-- 源数据版（结束） -->
+        <!-- 配置点乐（结束） -->
+
+
+        <!-- 配置点入（开始） -->
+        <!-- 自带、源数据版UI版（开始） -->
+        <!-- appkey必须在string.xml中写 -->
+        <meta-data
+            android:name="DR_APPKEY"
+            android:value="@string/DR_app_key" />
+        <!--
+           <activity
+           android:name="com.yql.dr.sdk.DRActivity"
+           android:configChanges="keyboardHidden|orientation"
+           android:exported="false"
+           android:hardwareAccelerated="true"
+           android:theme="@android:style/Theme.Light.NoTitleBar" />
+        -->
+        <service
+            android:name="com.yql.dr.sdk.ProcessService"
+            android:enabled="true"
+            android:exported="false" />
+        <service
+            android:name="com.yql.dr.sdk.DRService"
+            android:enabled="true"
+            android:exported="false" />
+
+        <receiver
+            android:name="com.yql.dr.pkg.LocalAppContrast"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="android.intent.action.PACKAGE_ADDED" />
+                <action android:name="android.intent.action.PACKAGE_REMOVED" />
+
+                <data android:scheme="package" />
+            </intent-filter>
+        </receiver>
+        <!-- 自带UI版、源数据版（结束） -->
+        <!-- 配置点乐（结束） -->
+
+
+        <!-- 百度定位（开始） -->
+        <service
+            android:name="com.baidu.location.f"
+            android:enabled="true"
+            android:process=":remote">
+            <intent-filter>
+                <action android:name="com.baidu.location.service_v2.2" />
+            </intent-filter>
+        </service>
+
+        <meta-data
+            android:name="com.baidu.lbsapi.API_KEY"
+            android:value="lqP1QhPkrISKbqrm7r7G8IpWsWsI0ep0" />
+        <!-- 百度定位（结束） -->
+
+        <activity
+            android:name=".KotlinActivity"
+            android:label="@string/title_activity_kotlin"></activity>
+    </application>
+
+</manifest>

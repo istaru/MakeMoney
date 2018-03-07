@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>邀请好友</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+
+    <meta http-equiv="Cache-Control" name="no-store">
+    <meta content="telephone=no,email=no" name="format-detection">
+    <!-- 针对手持设备优化，主要是针对一些老的不识别viewport的浏览器，比如黑莓 -->
+    <meta name="HandheldFriendly" content="true">
+    <!-- 微软的老式浏览器 -->
+    <meta name="MobileOptimized" content="320">
+    <!-- uc强制竖屏 -->
+    <meta name="screen-orientation" content="portrait">
+    <!-- QQ强制竖屏 -->
+    <meta name="x5-orientation" content="portrait">
+    <!-- UC强制全屏 -->
+    <meta name="full-screen" content="yes">
+    <!-- QQ强制全屏 -->
+    <meta name="x5-fullscreen" content="true">
+    <!-- UC应用模式 -->
+    <meta name="browsermode" content="application">
+    <!-- QQ应用模式 -->
+    <meta name="x5-page-mode" content="app">
+    <!-- windows phone 点击无高光 -->
+    <meta name="msapplication-tap-highlight" content="no">
+    <meta http-equiv="x-dns-prefetch-control" content="on" />
+
+    <script type="text/javascript">
+        var cssEl = document.createElement('style');
+        document.documentElement.firstElementChild.appendChild(cssEl);
+        cssEl.innerHTML = 'html{font-size:'+document.documentElement.clientWidth/4.14+'px!important}';
+    </script>
+    <link rel="stylesheet" href="../css/mui.css">
+    <style type="text/css">
+        html,body{
+            height: 100%;
+        }
+        body{
+            background-color: #efeff4;
+            padding-top: .3rem;
+            font-size: .16rem;
+        }
+        .user_img{
+            display: block;
+            width: 2.6rem;
+            height: 2.6rem;
+            margin: .5rem auto .2rem;
+        }
+        p{
+            white-space: nowrap;            
+            text-align: center;
+        }
+        p.desc_top{
+            color: #DD524D;
+            font-size: .18rem;
+            line-height: .3rem;
+        }
+        p.desc_bottom{
+            font-size: .13rem;
+            line-height: .3rem;
+        }
+        .btn_start_invite{
+            width: 3rem;
+            height: .5rem;
+            border-radius: .07rem;
+            line-height: .5rem;
+            margin: .3rem auto;
+            padding: 0;
+            font-size: .18rem;
+        }
+        .btn_start_invite:active,.btn_start_invite:focus{
+            color: #fff;
+            background-color: #CE3631;
+        }
+        em{
+            color: #DD524D;
+            font-weight: bold;
+            font-style: normal;
+            font-size: .18rem;
+            line-height: .3rem;
+        }
+        .mui-table-view-cell{
+            font-size: .2rem;
+            padding: .14rem .15rem;
+        }
+        .mui-table-view-cell > a:not(.mui-btn){
+            margin: -.14rem -.15rem;
+        }
+        .mui-popover .mui-table-view .mui-table-view-cell:last-child, .mui-popover .mui-table-view .mui-table-view-cell:last-child > a:not(.mui-btn) {
+            border-bottom-right-radius: .05rem;
+            border-bottom-left-radius: .05rem;
+        }
+        .mui-popover .mui-table-view .mui-table-view-cell:first-child, .mui-popover .mui-table-view .mui-table-view-cell:first-child > a:not(.mui-btn) {
+            border-top-left-radius: .05rem;
+            border-top-right-radius: .05rem;
+        }
+        .mui-popover.mui-popover-action .mui-table-view{
+            border-radius: .05rem;
+        }
+        .friends_circle{
+            color: #23AD23;
+        }
+        .wechat_friends{
+            color: #DE3B3B;
+        }
+    </style>
+</head>
+
+<body>
+    <img class="user_img" src="">
+    <p class="desc_top">邀请可获高额新手奖励，并享永久提成</p>
+    <p class="desc_bottom">好友和Ta的好友做任务，还可获得Ta们收入的<em>10%</em></p>
+    <a href="#picture" class="mui-btn mui-btn-danger mui-btn-block btn_start_invite">开始邀请</a>
+
+    <div id="picture" class="mui-popover mui-popover-action mui-popover-bottom">
+        <ul class="mui-table-view">
+            <li class="mui-table-view-cell friends_circle" data-idx="1">
+                <a href="#">朋友圈</a>
+            </li>
+            <li class="mui-table-view-cell wechat_friends" data-idx="2">
+                <a href="#">微信好友</a>
+            </li>
+            <li class="mui-table-view-cell" data-idx="3">
+                <a href="#">邀请链接</a>
+            </li>
+            <li class="mui-table-view-cell" data-idx="4">
+                <a href="#">保存二维码</a>
+            </li>
+        </ul>
+        <ul class="mui-table-view">
+            <li class="mui-table-view-cell">
+                <a href="#picture"><b>取消</b></a>
+            </li>
+        </ul>
+    </div>
+    <script src="../js/mui.js"></script>
+    <script type="text/javascript" charset="utf-8">
+        (function(){
+            var WX_APPID = "wx9cef7c63353f7ed6";
+            // 发送给安卓微信ID,同时获取二维码;
+            window.Android.sendData(WX_APPID);
+
+            mui("body").on("tap",".mui-popover-action li",function(){
+                mui('#picture').popover('toggle');
+                window.Android.openShare(+this.getAttribute("data-idx"));
+            });
+
+            window.getData = function(data){
+                mui('.user_img')[0].setAttribute("src","data:image/jpg;base64," + data.url);
+            }
+        })();
+    </script>
+</body>
+
+</html>

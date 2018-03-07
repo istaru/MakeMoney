@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/layout_viewager_content"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:clipChildren="false">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.mx.hb.moon.view.BannerViewPager
+            android:id="@+id/viewPager"
+            android:overScrollMode="never"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:clipChildren="false">
+        </com.mx.hb.moon.view.BannerViewPager>
+
+        <LinearLayout
+            android:id="@+id/layout_viewpager_indicator"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="10dp"
+            android:gravity="right"
+            android:layout_marginRight="10dp"
+            android:orientation="horizontal" >
+
+        </LinearLayout>
+    </RelativeLayout>
+
+</FrameLayout>

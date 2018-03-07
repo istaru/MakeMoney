@@ -1,0 +1,6 @@
+apply plugin: 'java'
+
+dependencies {
+    compile fileTree(include: ['*.jar'], dir: 'libs')
+    compile files('libs/fastjson-1.2.5.jar')
+}

@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="50dp"
+        android:layout_marginRight="50dp"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/loginitem3_1"
+        android:orientation="vertical"
+        android:padding="10dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:layout_marginTop="10dp">
+
+            <TextView
+                android:id="@+id/bindingPhoneTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="手机号码登录"
+                android:textColor="@color/dialog_blue"
+                android:textSize="18sp"/>
+
+        </LinearLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginBottom="5dp">
+
+            <LinearLayout
+                android:id="@+id/llComment"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_marginRight="85dp" >
+
+                <com.mx.hb.moon.view.EditTextWithClear
+                    android:id="@+id/telphone"
+                    android:layout_width="match_parent"
+                    android:layout_centerVertical="true"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/bg_edittext_que"
+                    android:paddingLeft="15dp"
+                    android:gravity="left|center"
+                    android:hint="请输入手机号码"
+                    android:textSize="16sp"
+                    android:singleLine="true"
+                    android:inputType="number"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/llSend"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_alignParentRight="true">
+
+                <Button
+                    android:id="@+id/queryCode"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/bg_edittext_code1"
+                    android:text="获取验证码"
+                    android:layout_centerVertical="true"
+                    android:layout_alignParentRight="true"
+                    android:textSize="14sp"/>
+
+            </LinearLayout>
+
+        </RelativeLayout>
+
+        <com.mx.hb.moon.view.EditTextWithClear
+            android:id="@+id/code"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:background="@drawable/bg_edittext"
+            android:layout_marginTop="10dp"
+            android:paddingLeft="15dp"
+            android:gravity="left|center"
+            android:hint="请输入验证码"
+            android:textSize="16sp"
+            android:singleLine="true"
+            android:inputType="number"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:layout_marginBottom="15dp"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/loginBtn"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:background="@drawable/btnbg_out_share"
+                android:text="登录"
+                android:textColor="@color/white"
+                android:textSize="18sp" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>
